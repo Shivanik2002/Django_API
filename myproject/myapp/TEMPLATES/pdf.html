@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Report</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        tr{
+            border: 1px solid #0000;
+            padding: 10px !important;
+            margin: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h3>Students Data Report - {{ today | date:"d/m/Y" }}</h3>
+            </div>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>S.no</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Address</th>
+                        <th>Father Name</th>
+
+                    </tr>
+                </thead> 
+                <tbody>
+                    {% for student in student_objs %}
+                    <tr>
+                        <th scope="row">{{forloop.counter}}</th>
+                        <th scope="text-center">{{student.name}}</th>
+                        <th scope="text-center">{{fstudent.age}}</th>
+                        <th scope="text-center">{{fstudent.address}}</th>
+                        <th scope="text-center">{{fstudent.father_name}}</th>
+
+                    </tr>
+                    { % endfor }
+                </tbody>
+            </table>
+        </div>
+    </div>   
+</body>
+</html>
